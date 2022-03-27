@@ -10,9 +10,12 @@ class Mtl < Thor
   desc 'add', 'add task'
   def add(task)
     File.open(MTL_TASK_LIST_FILE_PATH, 'a+') do |task_list|
-      current = Time.now.strftime("%Y-%m-%d %H:%M")
-      task_list.puts("[#{current}] #{task}")
+      current_time = Time.now.strftime("%Y-%m-%d %H:%M")
+      task_list.puts("[#{current_time}] #{task}")
       puts 'succeeded!'
+      task_list.seek(0)
+      puts ''
+      puts task_list.read
     end
   end
 
