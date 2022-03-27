@@ -5,7 +5,6 @@ require 'pry'
 
 # Mtl(MyTaskList)
 class Mtl < Thor
-  MTL_TASK_LIST_FILE_PATH = ENV['MTL_TASK_LIST_FILE_PATH']
   default_command :list
 
   desc 'add', 'add task'
